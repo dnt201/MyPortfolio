@@ -1,13 +1,70 @@
-body {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Preahvihear&display=swap");
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+ol,
+ul {
+  list-style: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a:hover,
+button:hover {
+  cursor: pointer;
+  color: rgb(56, 189, 248);
+}
+
+body {
+  min-height: 100vh;
+  color: "#334155";
+}
+html {
+  font-family: "Preahvihear", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  color: "#334155" !important;
+}
+
+html.dark {
+  color: white !important;
+}
+
+.typewriter h1,
+.typewriter span {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0.15em solid orange; /* The typewriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: 0.1em; /* Adjust as needed */
+  animation: typing 4.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  animation-iteration-count: infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  50% {
+    width: 100%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
 }
