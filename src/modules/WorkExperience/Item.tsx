@@ -4,9 +4,12 @@ interface iWorkExperience {
   imgLogo: string;
   companyName: string;
   linkCompany: string;
+  nameJob?: string;
+  timeJob?: string;
+  desJob?: string[];
 }
 const Item: React.FC<iWorkExperience> = (props) => {
-  const { imgLogo, companyName, linkCompany } = props;
+  const { imgLogo, companyName, linkCompany, nameJob, timeJob, desJob } = props;
   return (
     <div className="flex justify-center items-center phone:flex-col phone:items-start ">
       <img
@@ -16,12 +19,15 @@ const Item: React.FC<iWorkExperience> = (props) => {
       />
       <div className="flex-1 pl-4 phone:pl-0 phone:pt-4">
         <div className="">
-          <h1 className="text-2xl font-bold">ReactJS Developer</h1>
-          <p className="text-xs ">06/2022 - 11/2022</p>
+          <h1 className="text-2xl font-bold">
+            {nameJob ? nameJob : "ReactJS Developer"}
+          </h1>
+          <p className="text-xs ">{timeJob ? timeJob : "06/2022 - 11/2022"}</p>
         </div>
         <div className="pl-1 mt-1 text-s mb-3">
+          {desJob && desJob.map((i) => <p>{i}</p>)}
           <p>+ Use React Library, TailwindCss, Figma, Restful api - Axios...</p>
-          <p>+ Training ReactNative và Native Base Library.</p>
+          <p>+ Training ReactNative and Native Base Library.</p>
           <p>
             + Join a{" "}
             <a

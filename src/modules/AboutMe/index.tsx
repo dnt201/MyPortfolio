@@ -1,9 +1,15 @@
 import React from "react";
 import { HCMUTE, Me } from "../../assets/icons";
 
-const AboutMe = () => {
+interface iProps extends React.HTMLProps<HTMLDivElement> {}
+
+const AboutMe: React.FC<iProps> = (props) => {
   return (
-    <div className="flex items-center py-8 gap-4 tablet:flex-col tablet:justify-start tablet:items-center">
+    <div
+      className="flex items-center py-8 gap-4 tablet:flex-col tablet:justify-start tablet:items-center"
+      id=""
+    >
+      <div id="aboutMeId" className="absolute -top-64"></div>
       <Me />
       <div className="flex flex-col px-4 ">
         <p>Hello I'm </p>

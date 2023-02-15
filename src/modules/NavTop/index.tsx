@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Bars3, Moon, Sun, XMark } from "../../assets/icons";
 import logo from "../../assets/images/logo.png";
 interface iNavTopProps extends React.HTMLProps<HTMLDivElement> {}
-const NavTop: React.FC<iNavTopProps> = () => {
+
+const NavTop: React.FC<iNavTopProps> = (props) => {
   // const { className } = props;
   const [isShowNav, setIsShowNav] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
-
   const [yOffset, setYOffset] = useState(window.pageYOffset);
   const [visible, setVisible] = useState(false);
 
@@ -14,7 +14,7 @@ const NavTop: React.FC<iNavTopProps> = () => {
     function handleScroll() {
       const currentYOffset = window.pageYOffset;
       let visible;
-      if (currentYOffset < 128) visible = false;
+      if (currentYOffset < 64) visible = false;
       else visible = yOffset < currentYOffset;
       console.log(yOffset, currentYOffset);
       setYOffset(window.pageYOffset);
@@ -64,20 +64,34 @@ const NavTop: React.FC<iNavTopProps> = () => {
       <div
         className={"flex-1 flex justify-end items-center gap-4 phone:hidden"}
       >
-        <a className="px-3 py-2  font-medium rounded-md " href="#home">
+        <button
+          className="px-3 py-2  font-medium rounded-md "
+          onClick={() => {
+            document.getElementById("aboutMeId")?.scrollIntoView();
+          }}
+        >
           Home
-        </a>
-        <a className="px-3 py-2   font-medium rounded-md " href="#about">
+        </button>
+        <button
+          className="px-3 py-2   font-medium rounded-md "
+          onClick={() => {
+            document.getElementById("aboutMeId")?.scrollIntoView();
+          }}
+        >
           About
-        </a>
-        <a className="px-3 py-2   font-medium rounded-md " href="#work">
+        </button>
+        <button
+          className="px-3 py-2   font-medium rounded-md "
+          onClick={() => {
+            document.getElementById("workExpId")?.scrollIntoView();
+          }}
+        >
           Work
-        </a>
+        </button>
         <a className="px-3 py-2   font-medium rounded-md " href="#contact">
           Contact
         </a>
-
-        <i className="">|</i>
+        <p className="">|</p>
         <button
           className=" px-3 py-2"
           onClick={() => {
