@@ -1,13 +1,15 @@
 import React from "react";
-interface itemProps {
+export interface itemProps {
   nameProject: string;
   toolProject: string;
   desProject: string;
   imgLogo: string;
+  listDes: string[];
   number: number;
 }
 const Item: React.FC<itemProps> = (props) => {
-  const { nameProject, toolProject, desProject, imgLogo, number } = props;
+  const { nameProject, toolProject, desProject, imgLogo, listDes, number } =
+    props;
   return (
     <div
       className={
@@ -15,8 +17,16 @@ const Item: React.FC<itemProps> = (props) => {
         (number % 2 === 0 ? " flex-row-reverse " : null)
       }
     >
-      <div className="dark:bg-greyDark bg-gray-200  pt-4 pl-4 w-1/2 rounded-md flex flex-col justify-center ">
-        <img src={imgLogo} className="rounded-tl-md" />
+      <div
+        className={
+          "dark:bg-greyDark bg-gray-200  pt-4  w-1/2 rounded-md flex flex-col justify-center " +
+          (number % 2 === 0 ? " pl-4 " : " pr-4")
+        }
+      >
+        <img
+          src={imgLogo}
+          className={number % 2 === 0 ? " rounded-tl-md " : " rounded-tr-md "}
+        />
       </div>
       <div
         className={
@@ -33,6 +43,14 @@ const Item: React.FC<itemProps> = (props) => {
           {nameProject}
         </h1>
 
+        <span
+          className={
+            "text-base pb-1  text-black dark:text-white " +
+            (number % 2 === 0 ? " text-left " : "  text-right ")
+          }
+        >
+          {toolProject}
+        </span>
         <div
           className={
             "dark:bg-bgDark opacity-[0.9] dark:bg-gradient-to-r  bg-white  " +
