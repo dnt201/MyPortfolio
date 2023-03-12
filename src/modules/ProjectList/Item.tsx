@@ -1,26 +1,36 @@
+import { link } from "fs";
 import React from "react";
+import { Git } from "../../assets/icons";
 export interface itemProps {
   nameProject: string;
   toolProject: string;
   desProject: string;
   imgLogo: string;
   listDes: string[];
+  linkRepo: string;
   number: number;
 }
 const Item: React.FC<itemProps> = (props) => {
-  const { nameProject, toolProject, desProject, imgLogo, listDes, number } =
-    props;
+  const {
+    nameProject,
+    toolProject,
+    desProject,
+    imgLogo,
+    listDes,
+    linkRepo,
+    number,
+  } = props;
   return (
     <div
       className={
-        "flex min-w-[360px] max-w-[1024px] relative mt-8  justify-center rounded-md" +
+        "flex min-w-[320px] max-w-[1024px] relative mt-8  rounded-md tablet:flex-col   " +
         (number % 2 === 0 ? " flex-row-reverse " : null)
       }
     >
       <div
         className={
-          "dark:bg-greyDark bg-gray-200  pt-4  w-1/2 rounded-md flex flex-col justify-center " +
-          (number % 2 === 0 ? " pl-4 " : " pr-4")
+          "dark:bg-greyDark bg-gray-200  pt-4  w-1/2 tablet:w-full rounded-md flex flex-col justify-center z-0  " +
+          (number % 2 === 0 ? " left-0 " : " right-0")
         }
       >
         <img
@@ -30,8 +40,8 @@ const Item: React.FC<itemProps> = (props) => {
       </div>
       <div
         className={
-          " flex-1 py-1 flex justify-center flex-col " +
-          (number % 2 === 0 ? " translate-x-[10%] " : " -translate-x-[10%]")
+          " flex-1 py-1 flex justify-center flex-col absolute tablet:relative w-[60%] tablet:w-full z-0 " +
+          (number % 2 === 0 ? " left-0  " : " right-0 ")
         }
       >
         <h1
@@ -53,7 +63,7 @@ const Item: React.FC<itemProps> = (props) => {
         </span>
         <div
           className={
-            "dark:bg-bgDark opacity-[0.9] dark:bg-gradient-to-r  bg-white  " +
+            "dark:bg-bgDark opacity-[0.9] dark:bg-gradient-to-r  bg-white rounded-md " +
             (number % 2 === 0
               ? " dark:from-bgDark dark:via-gray-800 from-blue-50 via-slate-300  "
               : "  dark:from-gray-800 dark:via-bgDark ")
@@ -61,13 +71,20 @@ const Item: React.FC<itemProps> = (props) => {
         >
           <p
             className={
-              "text-s  py-2 px-4  text-justify tablet:text-ss break-all break-inside-avoid  break-after-all    " +
+              "text-s  py-2 px-4  text-justify tablet:text-ss    " +
               (number % 2 === 0 ? " pl-0 " : " pr-0 ")
             }
           >
             {desProject}
           </p>
         </div>
+        <a
+          target={"_blank"}
+          href={linkRepo}
+          className={" mt-1 " + (number % 2 === 0 ? "  " : "  self-end ")}
+        >
+          <Git className="dark:fill-white" />
+        </a>
       </div>
     </div>
   );

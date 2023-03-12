@@ -14,7 +14,7 @@ const WorkExperience: React.FC<iProps> = () => {
     console.log(innerW);
   }, [window.innerWidth, innerW]);
   return (
-    <Section id="workExpId" title="Work Experience " className="mt-16">
+    <Section id="workExpId" title="Work Experience " className="">
       <p className="mb-4">
         I'm final year student so I just have little experience. But I have many
         mini project during my study. I hope we can meet and work together.

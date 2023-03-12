@@ -30,7 +30,7 @@ const NavTop: React.FC<iNavTopProps> = (props) => {
   return (
     <nav
       className={
-        "w-full flex fixed  items-center bg-pri bg-white bg-opacity-95  px-[5%] h-16 border-b-[1px]  border-solid border-gray-200  dark:bg-bgDark dark:border-[rgb(255,251,251,0.1)] dark:bg-opacity-[0.98] duration-500 " +
+        "w-full flex fixed z-50 items-center bg-pri bg-white bg-opacity-95  px-[5%] h-16 border-b-[1px]  border-solid border-gray-200  dark:bg-bgDark dark:border-[rgb(255,251,251,0.1)] dark:bg-opacity-[0.98] duration-500 " +
         (visible ? "  -top-16 " : " top-0 ")
       }
     >

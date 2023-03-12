@@ -7,6 +7,7 @@ import HCMUTE from "./HCMUTE";
 import SkillLarge from "./SkillLarge";
 import SkillMedium from "./SkillMedium";
 import SkillSmall from "./SkillSmall";
+import Git from "./Git";
 
 export {
   Me,
@@ -18,4 +19,5 @@ export {
   SkillLarge,
   SkillMedium,
   SkillSmall,
+  Git,
 };
