@@ -88,9 +88,14 @@ const NavTop: React.FC<iNavTopProps> = (props) => {
         >
           Work
         </button>
-        <a className="px-3 py-2   font-medium rounded-md " href="#contact">
+        <button
+          className="px-3 py-2   font-medium rounded-md "
+          onClick={() => {
+            document.getElementById("contactId")?.scrollIntoView();
+          }}
+        >
           Contact
-        </a>
+        </button>
         <p className="">|</p>
         <button
           className=" px-3 py-2"
