@@ -5,7 +5,7 @@ import Item from "./Item";
 
 const ProjectList = () => {
   return (
-    <div>
+    <div className="pb-10">
       {listProject &&
         listProject.map((item) => (
           <Item

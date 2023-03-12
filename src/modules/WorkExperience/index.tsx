@@ -36,7 +36,7 @@ const WorkExperience: React.FC<iProps> = () => {
           </span>
         </p>
       </div>
-      <div className="w-full flex justify-center mt-4">
+      <div className="w-full flex justify-center mt-4 ">
         <img className="max-w-[1280px] min-w-[340px] w-3/4" src={Skill}></img>
       </div>
     </Section>

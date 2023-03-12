@@ -8,6 +8,8 @@ import SkillLarge from "./SkillLarge";
 import SkillMedium from "./SkillMedium";
 import SkillSmall from "./SkillSmall";
 import Git from "./Git";
+import Linkedin from "./Linkedin";
+import Gmail from "./Gmail";
 
 export {
   Me,
@@ -20,4 +22,6 @@ export {
   SkillMedium,
   SkillSmall,
   Git,
+  Linkedin,
+  Gmail,
 };

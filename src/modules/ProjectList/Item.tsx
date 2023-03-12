@@ -1,6 +1,7 @@
-import { link } from "fs";
 import React from "react";
 import { Git } from "../../assets/icons";
+import ReactTooltip from "react-tooltip";
+
 export interface itemProps {
   nameProject: string;
   toolProject: string;
@@ -11,15 +12,8 @@ export interface itemProps {
   number: number;
 }
 const Item: React.FC<itemProps> = (props) => {
-  const {
-    nameProject,
-    toolProject,
-    desProject,
-    imgLogo,
-    listDes,
-    linkRepo,
-    number,
-  } = props;
+  const { nameProject, toolProject, desProject, imgLogo, linkRepo, number } =
+    props;
   return (
     <div
       className={
@@ -34,6 +28,7 @@ const Item: React.FC<itemProps> = (props) => {
         }
       >
         <img
+          alt="logo"
           src={imgLogo}
           className={number % 2 === 0 ? " rounded-tl-md " : " rounded-tr-md "}
         />
@@ -79,11 +74,24 @@ const Item: React.FC<itemProps> = (props) => {
           </p>
         </div>
         <a
-          target={"_blank"}
+          target="_blank"
           href={linkRepo}
-          className={" mt-1 " + (number % 2 === 0 ? "  " : "  self-end ")}
+          className={
+            " my-anchor-element mt-1 " +
+            (number % 2 === 0 ? " self-start " : "  self-end ")
+          }
+          data-tip="Go to git source!"
+          data-for={`gitOpen${number}`}
         >
-          <Git className="dark:fill-white" />
+          <div>
+            <Git className="dark:fill-white" />
+
+            <ReactTooltip
+              id={`gitOpen${number}`}
+              place={"left"}
+              effect="solid"
+            />
+          </div>
         </a>
       </div>
     </div>

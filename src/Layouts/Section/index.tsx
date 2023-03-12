@@ -1,4 +1,4 @@
-import React, { ReactHTML, ReactPropTypes } from "react";
+import React from "react";
 
 interface iSection extends React.HTMLProps<HTMLDivElement> {
   title: string;

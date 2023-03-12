@@ -25,7 +25,7 @@ const AboutMe: React.FC<iProps> = (props) => {
           Currently, I'm a final year student at
           <a
             href="https://hcmute.edu.vn/"
-            target="_blank"
+            rel="noreferrer"
             className="text-[#2E3192FF] flex pl-1  hover:text-[#222564] dark:text-[#ED1B24FF]  dark:hover:text-[#ff1d29b9]"
           >
             <HCMUTE /> HCMUTE

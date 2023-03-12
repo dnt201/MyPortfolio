@@ -1,4 +1,5 @@
 import AboutMe from "../AboutMe";
+import ContactMe from "../ContactMe";
 import EducationBackground from "../EducationBackGround";
 import ProjectList from "../ProjectList";
 import WorkExperience from "../WorkExperience";
@@ -11,6 +12,7 @@ const MainSection: React.FC<iProps> = (props) => {
       <EducationBackground />
       <WorkExperience />
       <ProjectList />
+      <ContactMe />
     </div>
   );
 };
