@@ -16,7 +16,6 @@ const NavTop: React.FC<iNavTopProps> = (props) => {
       let visible;
       if (currentYOffset < 64) visible = false;
       else visible = yOffset < currentYOffset;
-      console.log(yOffset, currentYOffset);
       setYOffset(window.pageYOffset);
       setVisible(visible);
     }

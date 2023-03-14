@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Git } from "../../assets/icons";
 import ReactTooltip from "react-tooltip";
+import { useIntersection } from "../../hooks";
 
 export interface itemProps {
   nameProject: string;
@@ -14,17 +15,27 @@ export interface itemProps {
 const Item: React.FC<itemProps> = (props) => {
   const { nameProject, toolProject, desProject, imgLogo, linkRepo, number } =
     props;
+
+  const divRef = useRef(null);
+  const sectionRef = useIntersection(divRef, "0px");
   return (
     <div
+      ref={divRef}
       className={
-        "flex min-w-[320px] max-w-[1024px] relative mt-8  rounded-md tablet:flex-col   " +
+        "flex min-w-[320px] max-w-[1024px] relative mt-8  rounded-md tablet:flex-col transition-all duration-1000  " +
         (number % 2 === 0 ? " flex-row-reverse " : null)
       }
     >
       <div
         className={
-          "dark:bg-greyDark bg-gray-200  pt-4  w-1/2 tablet:w-full rounded-md flex flex-col justify-center z-0  " +
-          (number % 2 === 0 ? " left-0 " : " right-0")
+          "dark:bg-greyDark bg-gray-200  pt-4  w-1/2 tablet:w-full rounded-md flex flex-col justify-center z-0  transition-all duration-1000  " +
+          (number % 2 === 0 ? " left-0  " : " right-0") +
+          (sectionRef
+            ? " opacity-100 blur-0 translate-x-0  "
+            : " opacity-0 blur-sm ") +
+          (!sectionRef && number % 2 === 0
+            ? " translate-x-full "
+            : !sectionRef && number % 2 === 1 && " -translate-x-full ")
         }
       >
         <img
@@ -35,8 +46,14 @@ const Item: React.FC<itemProps> = (props) => {
       </div>
       <div
         className={
-          " flex-1 py-1 flex justify-center flex-col absolute tablet:relative w-[60%] tablet:w-full z-0 " +
-          (number % 2 === 0 ? " left-0  " : " right-0 ")
+          " flex-1 py-1 flex justify-center flex-col absolute tablet:relative w-[60%] tablet:w-full z-0 transition-all duration-1000 " +
+          (number % 2 === 0 ? " left-0  " : " right-0 ") +
+          (sectionRef
+            ? " opacity-100 blur-0 translate-x-0   "
+            : " opacity-0 blur-sm ") +
+          (!sectionRef && number % 2 === 0
+            ? " -translate-x-full "
+            : !sectionRef && number % 2 === 1 && " translate-x-full ")
         }
       >
         <h1
@@ -74,7 +91,7 @@ const Item: React.FC<itemProps> = (props) => {
           </p>
         </div>
         <a
-          target="_blank"
+          target="_blank "
           href={linkRepo}
           className={
             " my-anchor-element mt-1 " +

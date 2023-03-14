@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Section from "../../Layouts/Section";
 import UsumLogo from "../../assets/images/logo-usum-software.png";
 import Skill from "../../assets/images/skill.png";
 
 import Item from "./Item";
-import { SkillLarge, SkillMedium, SkillSmall } from "../../assets/icons";
+
 interface iProps extends React.HTMLProps<HTMLDivElement> {}
 
 const WorkExperience: React.FC<iProps> = () => {
   const [innerW, setInnerH] = useState(window.innerWidth);
+  const workRef = useRef(null);
+
   useEffect(() => {
     setInnerH(window.innerWidth);
     console.log(innerW);
